@@ -25,14 +25,6 @@ let hitungLuasSegitiga = (alas, tinggi) => alas * tinggi / 2
 let hasilLuasSegitiga = hitungLuasSegitiga(8, 4)
 console.log(`Luas segitiga = ${hasilLuasSegitiga}`)
 
-let hasil = 0
-let numbers = [5, 2, 3, 4, 4]
-numbers.forEach(number => {
-    hasil += number 
-    return hasil
-})
-console.log(hasil)
-
 // looping
 var i = 1
 for(i; i <= 5; i++){
@@ -46,3 +38,16 @@ let printNama = (nama) => {
     }
 }
 printNama('Nova')
+
+let hasil = 0
+let numbers = [5, 2, 3, 4, 4]
+numbers.forEach(number => {
+    hasil += number 
+    return hasil
+})
+console.log(hasil)
+
+let names = ['Nova', 'Apriani']
+for(let i = 0; i < names.length; i++){
+    console.log(`Halo ${names[i]}`)
+}
