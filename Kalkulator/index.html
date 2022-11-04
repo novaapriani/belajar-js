@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <style>
-        .output {
-            height: 7em;
-            width: 7em;
+        .outputPertama {
+            background-color: aqua;
+            height: 5em;
+            width: 5em;
+        }
+        .outputKedua {
+            background-color: rgb(76, 8, 8);
+            height: 5em;
+            width: 5em;
         }
     </style>
 </head>
 <body>
     <div class="kalkulator">
-        <div class="output"></div>
+        <div class="outputPertama"></div>
+        <div class="outputKedua"></div>
         <button data-all-clear>AC</button>
         <button data-delete>DEL</button>
         <button data-number>1</button>
@@ -32,7 +39,7 @@
         <button data-operator>-</button>
         <button data-number>.</button>
         <button data-number>0</button>
-        <button data-operator>=</button>
+        <button data-equal>=</button>
     </div>
 </body>
 </html>
