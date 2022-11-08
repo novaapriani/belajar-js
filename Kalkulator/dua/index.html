@@ -7,23 +7,27 @@
     <title>Kalkulator</title>
 
     <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>kalkulator Sederhana</h1>
+    <h1>Kalkulator Sederhana</h1>
 
-    <label for="inputAngka1">Masukkan angka pertama: </label>
-    <input type="text" id="inputAngka1" data-angka1>
+    <div class="calculator">
+        <label for="inputAngka1" class="labelAngka1">Masukkan angka pertama: </label>
+        <input type="number" id="inputAngka1" data-angka1>
 
-    <label for="inputAngka2">Masukkan angka kedua: </label>
-    <input type="text" id="inputAngka2" data-angka2>
+        <label for="inputAngka2" class="labelAngka2">Masukkan angka kedua: </label>
+        <input type="number" id="inputAngka2" data-angka2>
 
-    <button data-button>Kali</button>
-    <button data-button>Bagi</button>
-    <button data-button>Tambah</button>
-    <button data-button>Kurang</button>
-    <button data-button>Clear</button>
+        <button data-button>Kali</button>
+        <button data-button>Bagi</button>
+        <button data-button>Tambah</button>
+        <button data-button>Kurang</button>
+        <button data-button>Clear</button>
 
-    <div data-hasil></div>
+        <div data-hasil></div>
+    </div>
 
 </body>
 </html>
