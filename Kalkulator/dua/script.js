@@ -5,8 +5,8 @@ const hasilKalkulator = document.querySelector('[data-hasil]')
 
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
-        let angkaPertama = parseInt(inputAngkaPertama.value)
-        let angkaKedua = parseInt(inputAngkaKedua.value)
+        let angkaPertama = inputAngkaPertama.value
+        let angkaKedua = inputAngkaKedua.value
         let hasil = 0
         switch (event.target.innerText) {
             case 'Kali':
