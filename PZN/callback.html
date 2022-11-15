@@ -8,21 +8,25 @@
             return `https://www.blibli.com/backend/search/products?searchTerm=${keyword}`;
         }
 
-        async function getProducts(keyword) {
-            const ajax = new XMLHttpRequest()
-            ajax.open("GET", getProductsUrl(keyword))
+        function getProducts(keyword) {
+            const promise = new Promise((resolve, reject) => {
+                const ajax = new XMLHttpRequest()
+                const url = getProductsUrl(keyword)
+                ajax.open("GET", url)
 
-            if(ajax.status == 200){
-                let data = await JSON.parse(ajax.responseText)
-                displayProducts(data)
-                console.log("Success")
-            } 
-            else {
-                alert("Error")
-                console.log("Error")
-            }
-            
-            ajax.send()
+                ajax.onload = () => {
+                    
+                    if(ajax.status == 200){
+                        let data = JSON.parse(ajax.responseText)
+                        resolve(data)
+                    } else {
+                        reject(Error("Gagal menampilkan produk"))
+                    }
+                }
+
+                ajax.send()
+            })
+            return promise
         }
 
         function clearProducts() {
@@ -62,12 +66,34 @@
         }
 
         function buttonClick() {
-            getProducts(document.getElementById("keyword").value);
+            const promise1 = getProducts(document.getElementById("keyword").value);
+            const promise2 = getProducts(document.getElementById("keyword2").value);
+            const promise3 = getProducts(document.getElementById("keyword3").value);
+
+            Promise.all([promise1, promise2, promise3])
+                .then((values) => {
+                    return values.map((value) => value.data.products)
+                })
+                .then((values) => {
+                    clearProducts()
+                    values.forEach(products => {
+                        products.forEach(product => 
+                            displayProduct(product))
+                    })
+                })
+                .catch((error) => {
+                    alert(error.message)
+                })
+                .finally(() => {
+                    console.log("Mengambil data produk")
+                })
         }
     </script>
 </head>
 <body>
 <input type="text" id="keyword">
+<input type="text" id="keyword2">
+<input type="text" id="keyword3">
 <button onclick="buttonClick()">Search Products</button>
 <ul id="products"></ul>
 <div id="table-products"></div>
