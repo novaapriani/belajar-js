@@ -1,4 +1,4 @@
-const hobies = ['reading', 'listening music', 'eating', 'sleeping']
+// const hobies = ['reading', 'listening music', 'eating', 'sleeping']
 // const [ hobby1, hobby2, hobby3, hobby4 ] = hobies
 // console.log(hobby1)
 
@@ -12,14 +12,14 @@ const hobies = ['reading', 'listening music', 'eating', 'sleeping']
 // console.log(a)
 
 // rest parameter
-const [a, ...values] = [1, 2, 3, 4, 5]
-console.log(a)
-console.log(values)
+// const [a, ...values] = [1, 2, 3, 4, 5]
+// console.log(a)
+// console.log(values)
 
-const person = {
-    name: 'Nova',
-    age: 17
-}
+// const person = {
+//     name: 'Nova',
+//     age: 17
+// }
 
 // tidak akan berhasil
 // const { a, b } = person
@@ -34,4 +34,29 @@ const person = {
 // console.log(age)
 
 // materi destructuring object di buku
+
+
+// Destructuring function
+// urutan sangat penting
+// jika data yg direturn adalah array
+// let kalkulasi = function(a, b) {
+//     return [ a + b, a - b, a * b, a / b ]
+// }
+
+// const [ kurang, tambah, kali, bagi ] = kalkulasi(2, 3)
+// console.log(kurang)
+
+let kalkulasi = function(a, b){
+    return {
+        tambah: a + b,
+        kurang: a - b,
+        kali: a * b,
+        bagi: a / b
+    }
+}
+
+const { kali, tambah, bagi, kurang } = kalkulasi(2, 3)
+console.log(kali)
+
+
 
