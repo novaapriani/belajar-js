@@ -1,6 +1,6 @@
 function getPromise() {
     return new Promise((resolve, reject) => {
-        const waktu = 3000
+        const waktu = 7000
         if(waktu < 5000) {
             setTimeout(() => {
                 resolve('selesai')
@@ -12,8 +12,13 @@ function getPromise() {
 }
 
 async function getAsync() {
-    const promise = await getPromise()
-    console.log(promise)
+    try {
+        const promise = await getPromise()
+        console.log(promise)
+    }
+    catch(err) {
+        console.log(err)
+    }
 }
 
 getAsync()
